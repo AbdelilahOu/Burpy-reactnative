@@ -4,16 +4,9 @@ import {
   Image,
   rect,
   rrect,
-  Skia,
   useImage,
 } from '@shopify/react-native-skia';
-import {
-  Pressable,
-  StyleSheet,
-  Text,
-  useWindowDimensions,
-  View,
-} from 'react-native';
+import {Pressable, Text, useWindowDimensions, View} from 'react-native';
 
 export const HomeScreen = () => {
   const homeImage = useImage(require('../assets/home.jpg'));
