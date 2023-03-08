@@ -7,39 +7,37 @@ import {
   Skia,
   useImage,
 } from '@shopify/react-native-skia';
-import {Pressable, Text, useWindowDimensions, View} from 'react-native';
+import {
+  Pressable,
+  StyleSheet,
+  Text,
+  useWindowDimensions,
+  View,
+} from 'react-native';
 
 export const HomeScreen = () => {
   const homeImage = useImage(require('../assets/home.jpg'));
   const {width, height} = useWindowDimensions();
-  const roundedRect = rrect(
-    rect(10, 20, width - 10 * 2, height - 10 * 2),
-    10,
-    10,
-  );
-  // const roundedRect = Skia.Path.MakeFromSVGString(
-  //   'M 128 0 L 168 80 L 256 93 L 192 155 L 207 244 L 128 202 L 49 244 L 64 155 L 0 93 L 88 80 L 128 0 Z',
-  // )!;
+  const roundedRect = rrect(rect(0, 0, width - 20, height * 0.75 - 20), 10, 10);
+
   return (
     <View
       style={{
-        height: '100%',
-        width: '100%',
+        height: height,
+        width: width,
         backgroundColor: '#fff',
       }}>
       <View
         style={{
-          width: '100%',
-          height: '70%',
-          display: 'flex',
+          width: width,
+          height: '75%',
           alignItems: 'center',
           justifyContent: 'center',
-          paddingTop: 10,
         }}>
         <Canvas
           style={{
-            width: width,
-            height: height * 0.75 - 10,
+            width: width - 20,
+            height: height * 0.75 - 20,
           }}>
           <Group clip={roundedRect}>
             {homeImage && (
@@ -47,15 +45,15 @@ export const HomeScreen = () => {
                 image={homeImage}
                 x={0}
                 y={0}
-                width={width}
-                height={height}
+                width={width - 20}
+                height={height * 0.75 - 20}
                 fit="cover"
               />
             )}
           </Group>
         </Canvas>
       </View>
-      <View style={{width: '100%', height: '20%'}}></View>
+      <View style={{width: '100%', height: '15%'}}></View>
       <View
         style={{
           width: '100%',
