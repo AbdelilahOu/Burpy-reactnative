@@ -1,8 +1,9 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
-import {HomeScreen} from './screens/HomeScreen';
-import {View} from 'react-native';
+import {Setters} from './screens/SettersSecreen';
+import {Home} from './screens/HomeScreen';
 import * as React from 'react';
+import {Pets} from './screens/PetsScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -10,16 +11,14 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Timer"
-        screenOptions={{headerStyle: {backgroundColor: '#ffff'}}}>
-        <Stack.Screen
-          name="Timer"
-          options={({}) => ({
-            headerShadowVisible: false,
-            header: () => <View></View>,
-          })}
-          component={HomeScreen}
-        />
+        initialRouteName="Home"
+        screenOptions={{
+          headerShadowVisible: false,
+          header: () => undefined,
+        }}>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Pets" component={Pets} />
+        <Stack.Screen name="Setters" component={Setters} />
       </Stack.Navigator>
     </NavigationContainer>
   );

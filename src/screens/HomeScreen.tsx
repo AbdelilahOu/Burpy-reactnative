@@ -9,14 +9,14 @@ import {
 import {Pressable, Text, useWindowDimensions, View} from 'react-native';
 import {StyleSheet} from 'react-native';
 
-export const HomeScreen = () => {
+export const Home = () => {
   const homeImage = useImage(require('../assets/home.jpg'));
   const {width, height} = useWindowDimensions();
   const roundedRect = rrect(rect(0, 0, width - 20, height * 0.75 - 20), 10, 10);
 
   return (
-    <View style={{...homeStyle.main, height, width}}>
-      <View style={{...homeStyle.image, width}}>
+    <View style={{...homeStyle.Main, height, width}}>
+      <View style={{...homeStyle.Image, width}}>
         <Canvas style={{width: width - 20, height: height * 0.75 - 20}}>
           <Group clip={roundedRect}>
             {homeImage && (
@@ -32,7 +32,9 @@ export const HomeScreen = () => {
           </Group>
         </Canvas>
       </View>
-      <View style={{width: '100%', height: '15%'}}></View>
+      <View style={homeStyle.Content}>
+        <Text>Find a pet setter</Text>
+      </View>
       <View style={homeStyle.ButtonParent}>
         <Pressable style={homeStyle.Button}>
           <Text style={homeStyle.ButtonText}>Get started</Text>
@@ -43,13 +45,18 @@ export const HomeScreen = () => {
 };
 
 const homeStyle = StyleSheet.create({
-  main: {
+  Main: {
     backgroundColor: '#fff',
   },
-  image: {
+  Image: {
     height: '75%',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  Content: {
+    padding: 10,
+    width: '100%',
+    height: '15%',
   },
   ButtonParent: {
     width: '100%',

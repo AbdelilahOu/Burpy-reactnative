@@ -1,5 +1,5 @@
 import {View} from 'react-native';
 
-export const TimerRing = () => {
+export const Pets = () => {
   return <View></View>;
 };
