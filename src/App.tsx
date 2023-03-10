@@ -2,10 +2,11 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import {Setters} from './screens/SettersSecreen';
 import {Home} from './screens/HomeScreen';
-import * as React from 'react';
 import {Pets} from './screens/PetsScreen';
+import {StackParams} from './types';
+import * as React from 'react';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<StackParams>();
 
 const App = () => {
   return (

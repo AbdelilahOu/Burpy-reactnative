@@ -8,8 +8,9 @@ import {
 } from '@shopify/react-native-skia';
 import {Pressable, Text, useWindowDimensions, View} from 'react-native';
 import {StyleSheet} from 'react-native';
+import {HomeProps} from '../types';
 
-export const Home = () => {
+export const Home = ({navigation}: HomeProps) => {
   const homeImage = useImage(require('../assets/home.jpg'));
   const {width, height} = useWindowDimensions();
   const roundedRect = rrect(rect(0, 0, width - 20, height * 0.75 - 20), 10, 10);
@@ -33,10 +34,16 @@ export const Home = () => {
         </Canvas>
       </View>
       <View style={homeStyle.Content}>
-        <Text>Find a pet setter</Text>
+        <Text style={homeStyle.Title}>Let's Find A Lovely Pet Or A Friend</Text>
+        <Text>
+          now it's easier than vever to find a friend or a new replacement for
+          the family
+        </Text>
       </View>
       <View style={homeStyle.ButtonParent}>
-        <Pressable style={homeStyle.Button}>
+        <Pressable
+          onPress={() => navigation.push('Setters')}
+          style={homeStyle.Button}>
           <Text style={homeStyle.ButtonText}>Get started</Text>
         </Pressable>
       </View>
@@ -57,6 +64,15 @@ const homeStyle = StyleSheet.create({
     padding: 10,
     width: '100%',
     height: '15%',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 7,
+  },
+  Title: {
+    fontWeight: '500',
+    fontSize: 25,
+    color: '#000',
+    width: '70%',
   },
   ButtonParent: {
     width: '100%',
