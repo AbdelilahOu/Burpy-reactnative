@@ -6,4 +6,4 @@ type StackParams = {
   Setters: undefined;
 };
 
-type HomeProps = NativeStackScreenProps<StackParams, 'Home'>;
+type Props<T> = NativeStackScreenProps<StackParams, T>;

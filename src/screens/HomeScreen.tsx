@@ -8,9 +8,9 @@ import {
 } from '@shopify/react-native-skia';
 import {Pressable, Text, useWindowDimensions, View} from 'react-native';
 import {StyleSheet} from 'react-native';
-import {HomeProps} from '../types';
+import {Props} from '../types';
 
-export const Home = ({navigation}: HomeProps) => {
+export const Home = ({navigation}: Props<'Home'>) => {
   const homeImage = useImage(require('../assets/home.jpg'));
   const {width, height} = useWindowDimensions();
   const roundedRect = rrect(rect(0, 0, width - 20, height * 0.75 - 20), 10, 10);
@@ -42,7 +42,7 @@ export const Home = ({navigation}: HomeProps) => {
       </View>
       <View style={homeStyle.ButtonParent}>
         <Pressable
-          onPress={() => navigation.push('Setters')}
+          onPress={() => navigation.push('Pets')}
           style={homeStyle.Button}>
           <Text style={homeStyle.ButtonText}>Get started</Text>
         </Pressable>
@@ -61,6 +61,7 @@ const homeStyle = StyleSheet.create({
     justifyContent: 'center',
   },
   Content: {
+    // backgroundColor: '#000',
     padding: 10,
     width: '100%',
     height: '15%',
@@ -72,19 +73,20 @@ const homeStyle = StyleSheet.create({
     fontWeight: '500',
     fontSize: 25,
     color: '#000',
-    width: '70%',
+    width: '100%',
   },
   ButtonParent: {
     width: '100%',
     height: '10%',
     display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 10,
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    paddingHorizontal: 10,
+    paddingVertical: 5,
   },
   Button: {
     width: '100%',
-    height: 55,
+    height: 50,
     borderRadius: 10,
     backgroundColor: '#00BBF0',
     display: 'flex',
